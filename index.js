@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 //var dbHelper = require('dbHelper');
 var userDb = require("./models/User");
-var dateDb = require("./models/Hangout");
+var hangoutDb = require("./models/Hangout");
 var mongoose = require('mongoose');
 var app = express();
 
