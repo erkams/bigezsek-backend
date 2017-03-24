@@ -4,7 +4,7 @@ var con = mongoose.createConnection('mongodb://bigezsek:1123581321@ds141490.mlab
 
 var dateSchema = new Schema({
   id: { type: String, required: true },
-  date: { type: String, required: true },
+  date: { type: Date, required: true },
   hour: { type: String, required: true },
   users: Array,
   created_at: Date,
