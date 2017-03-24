@@ -14,3 +14,4 @@ var getUsers = function(place, date, hour, callback){
 }
 
 exports.getUsers = getUsers;
+

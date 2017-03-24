@@ -1,9 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var dbHelper = require('dbHelper');
-var userDb = require("./models/User");
-var hangoutDb = require("./models/Hangout");
-var mongoose = require('mongoose');
+var dbHelper = require('./dbHelper');
 var app = express();
 
 app.get('/getUsers', function (req, res) {
