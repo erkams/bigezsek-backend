@@ -12,7 +12,7 @@ var hangoutSchema = new Schema({
   updated_at: Date
 });
 
-dateSchema.pre('save', function(next) {
+hangoutSchema.pre('save', function(next) {
   var currentDate = new Date();
   
   this.updated_at = currentDate;
