@@ -8,6 +8,9 @@ var userSchema = new Schema({
   age: Number,
   bio: String,
   pic_url: String,
+  hangout_place: String,
+  hangout_date: String,
+  hangout_hour: String,
   id: { type: String, required: true, unique: true },
   created_at: Date,
   updated_at: Date
