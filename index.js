@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var User = require("../models/User");
-var User = require("../models/Date");
+var userDb = require("./models/User");
+var dateDb = require("./models/Date");
 var mongoose = require('mongoose');
 var app = express();
 
