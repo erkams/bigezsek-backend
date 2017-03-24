@@ -2,18 +2,16 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var con = mongoose.createConnection('mongodb://bigezsek:1123581321@ds141490.mlab.com:41490/heroku_gj10ngvg');
 
-var userSchema = new Schema({
-  first_name: String,
-  last_name: String,
-  age: Number,
-  bio: String,
-  pic_url: String,
-  id: { type: String, required: true, unique: true },
+var dateSchema = new Schema({
+  id: { type: String, required: true },
+  date: { type: String, required: true },
+  hour: { type: String, required: true },
+  users: Array,
   created_at: Date,
   updated_at: Date
 });
 
-userSchema.pre('save', function(next) {
+dateSchema.pre('save', function(next) {
   var currentDate = new Date();
   
   this.updated_at = currentDate;
@@ -24,4 +22,4 @@ userSchema.pre('save', function(next) {
   next();
 });
 
-module.exports = con.model('User', userSchema);
+module.exports = con.model('Date', dateSchema);

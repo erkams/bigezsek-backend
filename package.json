@@ -4,19 +4,19 @@
   "description": "getir hackathon 2017",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/erkamseker/bigezsek-backend.git"
-  },
-  "scripts": {
-  "start": "node index.js"
   },
   "author": "erkam",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/erkamseker/bigezsek-backend/issues"
   },
-  "homepage": "https://github.com/erkamseker/bigezsek-backend#readme"
+  "homepage": "https://github.com/erkamseker/bigezsek-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1"
+  }
 }
