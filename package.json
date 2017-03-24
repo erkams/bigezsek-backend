@@ -1,0 +1,19 @@
+{
+  "name": "bigezsek-backend",
+  "version": "1.0.0",
+  "description": "getir hackathon 2017",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erkamseker/bigezsek-backend.git"
+  },
+  "author": "erkam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erkamseker/bigezsek-backend/issues"
+  },
+  "homepage": "https://github.com/erkamseker/bigezsek-backend#readme"
+}
