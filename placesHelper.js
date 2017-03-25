@@ -1,4 +1,4 @@
-var NearBySearch = require("googleplaces/NearBySearch");
+var NearBySearch = require("googleplaces").NearBySearch;
 var config = require("./config.js");
 
 var nearBySearch = new NearBySearch(config.apiKey, config.outputFormat);
