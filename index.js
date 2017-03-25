@@ -23,7 +23,10 @@ app.get('/sendMessage', function (req, res) {
 	from = req.query.from;
 	to = req.query.to;
 	message = req.query.message;
-	dbHelper.sendMessage(from, to, message);
+	dbHelper.sendMessage(from, to, message, function(str){
+		res.send(str);
+	});
+
 });
 
 app.get('/getNearbyPlaces', function (req, res) {

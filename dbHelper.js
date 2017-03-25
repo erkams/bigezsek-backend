@@ -60,7 +60,7 @@ var getHangouts = function(places, callback){
 	});
 }
 
-var sendMessage = function(message, from, to){
+var sendMessage = function(from, to, message, callback){
 	var messageObj = new Message({
   		message: message,
   		from: from,
@@ -68,6 +68,7 @@ var sendMessage = function(message, from, to){
 
 	messageObj.save(function(err) {
   		if (err) console.log(err);
+  			callback(JSON.stringify(messageObj));
   			console.log(messageObj.message + ' sent successfully!');
 	});
 }
