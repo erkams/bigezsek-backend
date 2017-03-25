@@ -35,5 +35,4 @@ var getById = function (id, myArray) {
     })[0];
   }
 
-get_my_obj = getById(73, myArray);
 exports.getNearbyPlaces = getNearbyPlaces;
