@@ -14,8 +14,17 @@ app.get('/getUsers', function (req, res) {
 	date = req.query.date;
 	hour = req.query.hour;
 	dbHelper.getUsers(id, place, date, hour, function(users){
-		console.log(JSON.stringify(users));
 		res.send(JSON.stringify(users));
+	});
+});
+
+app.get('/getNearbyPlaces', function (req, res) {
+	location = req.query.location;
+	radius = req.query.radius;
+	date = req.query.date;
+	hour = req.query.hour;
+	placesHelper.getNearbyPlaces(location, radius, function(places){
+		res.send(JSON.stringify(places));
 	});
 });
 
@@ -47,7 +56,8 @@ var server = app.listen(process.env.PORT || 8082, function () {
 var io = socket.listen(server);
 
 io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
+	console.log(socket)
+  	socket.on('chat message', function(msg){
     io.emit('chat message', msg);
   });
 });
