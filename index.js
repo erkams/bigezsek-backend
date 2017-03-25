@@ -1,7 +1,12 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var socket = require('socket.io');
 var dbHelper = require('./dbHelper');
 var app = express();
+
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/index.html');
+});
 
 app.get('/getUsers', function (req, res) {
 	id = req.query.id;
@@ -14,7 +19,7 @@ app.get('/getUsers', function (req, res) {
 	});
 });
 
-app.route('/newHangout').post(function(req, res) {
+app.route('/newHangout').post(function (req, res) {
     id = req.query.id;
  	place = req.query.place;
  	date = req.query.date;
@@ -39,3 +44,15 @@ var server = app.listen(process.env.PORT || 8082, function () {
    console.log("http://%s:%s listening..", host, port);
 });
 
+var io = socket.listen(server);
+
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+  });
+});
+/*
+var main = io.sockets.on('connection', function (socket){
+
+});
+*/
