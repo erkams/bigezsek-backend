@@ -17,8 +17,6 @@ var getUsers = function(id, place, date, hour, callback){
 	});
 }
 
-var getNearbyPois = function(location, radius, )
-
 var newHangout = function(id, place, date, hour){
 	User.findOne({ id: id }, function(err, user){
 		if(err){
