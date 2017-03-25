@@ -1,7 +1,5 @@
-var NearBySearch = require("googleplaces").NearBySearch;
 var config = require("./config.js");
-
-var nearBySearch = new NearBySearch(config.apiKey, config.outputFormat);
+var nearBySearch = require("googleplaces").NearBySearch(config.apiKey, config.outputFormat);
 
 var getNearbyPlaces = function(location, radius, callback){
 	params = {
