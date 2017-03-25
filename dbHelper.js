@@ -38,6 +38,14 @@ var newHangout = function(id, place, date, hour){
 			console.log(err);
 			throw err;
 		} 
+		if(hangout == null){
+			hangout = new Hangout({
+				place: place,
+				date: date,
+				hour: hour,
+				users: [id]
+			});
+		}
 		if(!(id in hangout.users)) hangout.users.push(id);
 
 		hangout.save(function(err) {
