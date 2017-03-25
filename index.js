@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var socket = require('socket.io');
 var dbHelper = require('./dbHelper');
+var placesHelper = require('./placesHelper');
 var app = express();
 
 app.get('/', function(req, res){
@@ -21,8 +22,6 @@ app.get('/getUsers', function (req, res) {
 app.get('/getNearbyPlaces', function (req, res) {
 	location = req.query.location;
 	radius = req.query.radius;
-	date = req.query.date;
-	hour = req.query.hour;
 	placesHelper.getNearbyPlaces(location, radius, function(places){
 		res.send(JSON.stringify(places));
 	});
