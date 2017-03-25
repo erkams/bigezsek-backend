@@ -23,8 +23,17 @@ app.get('/sendMessage', function (req, res) {
 	from = req.query.from;
 	to = req.query.to;
 	message = req.query.message;
-	dbHelper.sendMessage(from, to, message, function(str){
-		res.send(str);
+	dbHelper.sendMessage(from, to, message, function(messageObj){
+		res.send(JSON.stringify(messageObj));
+	});
+
+});
+
+app.get('/getMessagesbyUser', function (req, res) {
+	from = req.query.from;
+	to = req.query.to;
+	dbHelper.getMessagesbyUser(from, to, function(messages){
+		res.send(JSON.stringify(messages));
 	});
 
 });

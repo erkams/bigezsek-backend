@@ -74,7 +74,7 @@ var sendMessage = function(from, to, message, callback){
 
 	messageObj.save(function(err) {
   		if (err) console.log(err);
-  			callback(JSON.stringify(messageObj));
+  			callback(messageObj);
   			console.log(messageObj.message + ' sent successfully!');
 	});
 }
