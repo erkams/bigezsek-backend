@@ -21,7 +21,7 @@ var getNearbyPlaces = function(location, radius, callback){
         			mapsObj.date = hangout.date;
         		}
         	});
-        }
+        });
         console.log(response.results);
     	callback(response.results);
     });
