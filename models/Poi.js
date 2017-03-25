@@ -1,17 +1,21 @@
+//????
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var con = mongoose.createConnection('mongodb://bigezsek:1123581321@ds141490.mlab.com:41490/heroku_gj10ngvg');
 
-var hangoutSchema = new Schema({
-  place: { type: String, required: true },
-  date: { type: String, required: true },
-  hour: { type: String, required: true },
-  users: Array,
+var poiSchema = new Schema({
+  place_id: { type: String, required: true },
+  place_name: String,
+  location: String,
+  img_url: String,
+  sabah: Array, //[3, 4, 12]
+  oglen: Array,
+  aksam: Array,
   created_at: Date,
   updated_at: Date
 });
 
-hangoutSchema.pre('save', function(next) {
+poiSchema.pre('save', function(next) {
   var currentDate = new Date();
   
   this.updated_at = currentDate;
@@ -22,4 +26,4 @@ hangoutSchema.pre('save', function(next) {
   next();
 });
 
-module.exports = con.model('Hangout', hangoutSchema);
+module.exports = con.model('Poi', poiSchema);

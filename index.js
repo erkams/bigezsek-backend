@@ -19,11 +19,19 @@ app.get('/getUsers', function (req, res) {
 	});
 });
 
+app.get('/sendMessage', function (req, res) {
+	from = req.query.from;
+	to = req.query.to;
+	message = req.query.message;
+	dbHelper.sendMessage(from, to, message);
+});
+
 app.get('/getNearbyPlaces', function (req, res) {
 	location = req.query.location;
 	radius = req.query.radius;
 	placesHelper.getNearbyPlaces(location, radius, function(places){
 		res.send(JSON.stringify(places));
+
 	});
 });
 
