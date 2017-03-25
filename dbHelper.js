@@ -80,7 +80,7 @@ var sendMessage = function(from, to, message, callback){
 }
 
 var getMessagesbyUser = function(from, to, callback){
-	Message.find({ $or:[{from: from, to: to }, { from: to, to: from }] }).sort({created_at: +1}).exec(function(err, messsages){
+	Message.find({ $or:[{from: from, to: to }, { from: to, to: from }] }).sort({created_at: +1}).exec(function(err, messages){
 		if(err){
 			console.log(err);
 			throw err;
