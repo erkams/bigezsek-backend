@@ -107,7 +107,7 @@ var getMessageUsers = function(id, callback){
 exports.getUsers = getUsers;
 exports.newHangout = newHangout;
 exports.getHangouts = getHangouts;
-exports.saveMessage = saveMessage;
+exports.sendMessage = sendMessage;
 exports.getMessageUsers = getMessageUsers;
 exports.getMessagesbyUser = getMessagesbyUser;
 
