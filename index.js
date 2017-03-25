@@ -7,7 +7,7 @@ app.get('/getUsers', function (req, res) {
 	id = req.query.id;
 	place = req.query.place;
 	date = req.query.date;
-	hour = req.squery.hour;
+	hour = req.query.hour;
 	dbHelper.getUsers(id, place, date, hour, function(users){
 		console.log(JSON.stringify(users));
 		res.send(JSON.stringify(users));

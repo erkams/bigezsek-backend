@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/erkamseker/bigezsek-backend#readme",
   "dependencies": {
-    "body-parser": "^1.17.1"
+    "body-parser": "^1.17.1",
+    "socket.io": "^1.7.3"
   }
 }
