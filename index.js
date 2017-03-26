@@ -80,6 +80,7 @@ io.on('connection', function(socket){
     io.emit('chat message', msg);
   });
 });
+
 /*
 var main = io.sockets.on('connection', function (socket){
 

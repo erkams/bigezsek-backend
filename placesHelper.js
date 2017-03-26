@@ -4,7 +4,8 @@ var nearBySearch = require("googleplaces")("AIzaSyAZEViKGUsEJ-2byueG2TktfWPFoXPo
 var getNearbyPlaces = function(location, radius, callback){
 	params = {
         location: location,
-        radius: radius
+        radius: radius,
+        keyword: "amusement_park|art_gallery|bowling_alley|movie_theater|cafe|night_club|museum|park|casino|zoo|university",
     };
 
 	nearBySearch(params, function (error, response) {
