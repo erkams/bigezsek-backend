@@ -65,7 +65,7 @@ app.get('/newHangout', function (req, res) {
 });
 */
 
-var server = app.listen(process.env.PORT || 8082, function () {
+var server = app.listen(process.env.PORT || 8080, function () {
    var host = server.address().address;
    var port = server.address().port;
    
@@ -74,15 +74,49 @@ var server = app.listen(process.env.PORT || 8082, function () {
 
 var io = socket.listen(server);
 
-io.on('connection', function(socket){
-	console.log(socket)
-  	socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
+
+io.sockets.on('connection', function (socket) {
+
+	// when the client emits 'adduser', this listens and executes
+	socket.on('startChat', function(username, to){
+		// store the username in the socket session for this client
+		socket.username = username;
+		socket.to = to;
+		// store the room name in the socket session for this client
+		socket.room = username + "-" + to;
+		// add the client's username to the global list
+		// send client to room 1
+		socket.join(socket.room);
+		// echo to client they've connected
+		socket.emit('updatechat', 'SERVER', 'you have connected to ' + socket.room);
+		// echo to room 1 that a person has connected to their room
+		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', username + ' has connected to this room');
+		
+	});
+
+	// when the client emits 'sendchat', this listens and executes
+	socket.on('sendchat', function (data) {
+		// we tell the client to execute 'updatechat' with 2 parameters
+		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
+	});
+
+	socket.on('switchRoom', function(newroom){
+
+		socket.leave(socket.room);
+
+		socket.join(newroom);
+		socket.emit('updatechat', 'SERVER', 'you have connected to '+ newroom);
+		
+		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', socket.username+' has left this room');
+		
+		socket.room = newroom;
+		socket.broadcast.to(newroom).emit('updatechat', 'SERVER', socket.username+' has joined this room');
+	});
+
+	// when the user disconnects..
+	socket.on('disconnect', function(){
+		socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
+		socket.leave(socket.room);
+	});
 });
 
-/*
-var main = io.sockets.on('connection', function (socket){
-
-});
-*/

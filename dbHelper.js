@@ -89,7 +89,7 @@ var getMessagesbyUser = function(from, to, callback){
 		callback(messages);
 	});
 }
-
+/*
 var getMessageUsers = function(id, callback){
 	Message.find({ $or:[{from: id}, {to: id}] }, function(err, messages){
 		if(err){
@@ -110,7 +110,7 @@ var getMessageUsers = function(id, callback){
 	User.find({})
 		callback(users);
 	});
-}
+}*/
 
 exports.getUsers = getUsers;
 exports.newHangout = newHangout;
