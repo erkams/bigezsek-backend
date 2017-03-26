@@ -83,7 +83,7 @@ io.sockets.on('connection', function (socket) {
 		socket.username = username;
 		socket.who = who;
 
-		socket.room = username + "-" + who;
+		socket.room = "room";
 
 		socket.join(socket.room);
 
