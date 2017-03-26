@@ -83,12 +83,12 @@ io.sockets.on('connection', function (socket) {
 		socket.username = username;
 		socket.who = who;
 
-		socket.room = username + "-" + to;
+		socket.room = username + "-" + who;
 
 		socket.join(socket.room);
 
 		socket.emit('updatechat', 'SERVER', 'you have connected to ' + socket.room);
-		
+
 		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', username + ' has connected to this room');
 		
 	});
