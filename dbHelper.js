@@ -116,6 +116,5 @@ exports.getUsers = getUsers;
 exports.newHangout = newHangout;
 exports.getHangouts = getHangouts;
 exports.sendMessage = sendMessage;
-exports.getMessageUsers = getMessageUsers;
 exports.getMessagesbyUser = getMessagesbyUser;
 
