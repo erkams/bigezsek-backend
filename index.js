@@ -77,19 +77,18 @@ var io = socket.listen(server);
 
 io.sockets.on('connection', function (socket) {
 
-	// when the client emits 'adduser', this listens and executes
-	socket.on('startChat', function(username, to){
-		// store the username in the socket session for this client
+
+	socket.on('startChat', function(username, who){
+
 		socket.username = username;
-		socket.to = to;
-		// store the room name in the socket session for this client
+		socket.who = who;
+
 		socket.room = username + "-" + to;
-		// add the client's username to the global list
-		// send client to room 1
+
 		socket.join(socket.room);
-		// echo to client they've connected
+
 		socket.emit('updatechat', 'SERVER', 'you have connected to ' + socket.room);
-		// echo to room 1 that a person has connected to their room
+		
 		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', username + ' has connected to this room');
 		
 	});
